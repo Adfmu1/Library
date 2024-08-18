@@ -1,19 +1,163 @@
+/* fonts */
+@font-face {
+    font-family: "norwester";
+    src: url(fonts/norwester.otf);
+}
+
+@font-face {
+    font-family: "dream-orphans-bold";
+    src: url(fonts/DreamOrphansBd.otf);
+}
+
+@font-face {
+    font-family: "dream orphans it";
+    src: url(fonts/Dream\ Orphans\ It.otf);
+}
+
 /* global styling */
 body{
     margin: 0px;
 }
 
-h1 {
-    border: 2px dashed seagreen;
+input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+         -webkit-appearance: none;
+      }
+      
+
+input:focus {
+    outline: none;
 }
 
 /* Dashboard */
 #dashboard {
     position: fixed;
-    background-color: green;
+    background-color: #34d399;
     height: 100vh;
     width: 20vw;
+
+    h1 {
+        font-size: clamp(0.5rem, 2.3vw, 2.5rem);
+    }
+
+    h1, h2 {
+        font-family: "norwester";
+        letter-spacing: 0.1rem;
+    }
+
+    label {
+        font-family: "dream-orphans-bold";
+        font-size: 1.1rem;
+    }
+
+    input {
+        font-family: "dream-orphans-bold";
+        font-size: 1rem;
+    }
+
 }
+
+#dashboard-logo {
+    display: flex;
+
+    img {
+        width: clamp(2vh , 8vw, 50px);
+    }
+
+}
+
+#dashboard > * {
+    padding-left: 20px;
+
+    input {
+        border: 2px solid #064e3b;
+        border-radius: 15px;
+        height: 30px;
+        box-shadow: 5px 3px 5px #34d399;
+        max-width: 75%;
+        background-color: #ecfdf5;
+    }
+
+    input:focus {
+        border: 3px solid #15803d;
+        background-color: #bbf7d0;
+    }
+
+}
+
+
+#search-for-book {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+
+    #search-for-book-logo {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+
+        img {
+            height: 4vh;
+            padding-right: 5px;
+        }
+    }
+
+}
+
+#add-book-logo {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5vh;
+
+    img {
+        height: 3.5vh;
+        padding-right: 5px;
+    }
+
+}
+
+.add-book-field {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+
+    label {
+        padding-bottom: 3px;
+    }
+}
+
+#was-read-field {
+    display: flex;
+    align-items: center;
+
+    input[type=checkbox] {
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
+    }
+
+}
+
+#was-read-and-submit {
+    display: flex;
+    justify-content: space-between;
+
+    #add-book-btn {
+        background-color: #a7f3d0;
+        border-radius: 10px;
+        padding: 10px 20px;
+        margin-right: 3vw;
+        font-family: "dream-orphans-bold";
+        font-size: 1rem;
+    }
+
+    #add-book-btn:hover {
+        opacity: 90%;
+        border: 2px solid #047857;
+    }
+
+}
+
 
 /* Main page */
 #main-page {
@@ -34,5 +178,6 @@ h1 {
 
 /* Book card */
 .book {
+    border-radius: 5%;
     background-color: white;
 }
