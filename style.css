@@ -1,3 +1,36 @@
+/* global styling */
+body{
+    margin: 0px;
+}
+
 h1 {
     border: 2px dashed seagreen;
+}
+
+/* Dashboard */
+#dashboard {
+    position: fixed;
+    background-color: green;
+    height: 100vh;
+    width: 20vw;
+}
+
+/* Main page */
+#main-page {
+    margin-left: 20vw;
+    display: flex;
+    height: 200vh;
+    flex-direction: column;
+    background-color: blue;
+}
+
+#books {
+    display: grid;
+    grid-template: repeat(auto-fill, 30vh) / repeat(3, 1fr);
+    gap: 30px;
+    padding: 40px;
+}
+
+.book {
+    background-color: white;
 }
