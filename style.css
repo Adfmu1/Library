@@ -17,6 +17,7 @@
 /* global styling */
 body{
     margin: 0px;
+    background-color: #f5f3ff;
 }
 
 input::-webkit-outer-spin-button,
@@ -35,6 +36,8 @@ input:focus {
     background-color: #34d399;
     height: 100vh;
     width: 20vw;
+
+    box-shadow: 5px 1px 5px rgb(131, 131, 131);
 
     h1 {
         font-size: clamp(0.5rem, 2.3vw, 2.5rem);
@@ -163,21 +166,49 @@ input:focus {
 #main-page {
     margin-left: 20vw;
     display: flex;
+    align-items: center;
     height: 200vh;
     flex-direction: column;
-    background-color: blue;
 }
 
 /* Books grid */
 #books {
     display: grid;
-    grid-template: repeat(auto-fill, 30vh) / repeat(3, 1fr);
+    grid-template: repeat(auto-fit, 35vh) / repeat(3, 1fr);
     gap: 30px;
     padding: 40px;
 }
 
 /* Book card */
 .book {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
     border-radius: 5%;
     background-color: white;
+
+    h2, h3 {
+        margin: 5px 0px 0px 0px;
+    }
+
+    p {
+        margin: 10px 0px;
+    }
+
+}
+
+.book-options {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    padding-right: 1vw;
+    padding-bottom: 0.5vh;
+    overflow: auto;
+
+
+    a > img {
+        height: 2.5rem;
+    }
+
 }
