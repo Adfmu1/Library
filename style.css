@@ -24,6 +24,7 @@ h1 {
     background-color: blue;
 }
 
+/* Books grid */
 #books {
     display: grid;
     grid-template: repeat(auto-fill, 30vh) / repeat(3, 1fr);
@@ -31,6 +32,7 @@ h1 {
     padding: 40px;
 }
 
+/* Book card */
 .book {
     background-color: white;
 }
