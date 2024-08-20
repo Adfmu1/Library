@@ -79,6 +79,7 @@ input:focus {
         box-shadow: 5px 3px 5px #34d399;
         max-width: 75%;
         background-color: #ecfdf5;
+        padding-left: 5px;
     }
 
     input:focus {
