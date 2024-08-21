@@ -203,6 +203,8 @@ input:focus {
     justify-content: space-around;
     padding: 10px;
     border-radius: 5%;
+    box-shadow: 5px 10px 10px rgba(68, 68, 68, 0.349);
+
 
     h2, h3 {
         margin: 5px 0px 0px 0px;
