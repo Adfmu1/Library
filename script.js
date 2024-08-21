@@ -36,6 +36,7 @@ function addBookToLibrary() {
 
 function displayLibrary(library) {
     library.forEach(book => {
+        // add author, title and pages
         const headTitleAuthor = document.createElement("h2");
         headTitleAuthor.className = "title-and-author";
         headTitleAuthor.textContent = `${book.title} by ${book.author}`;
@@ -46,9 +47,11 @@ function displayLibrary(library) {
 
         const titleDiv = document.createElement("div");
         titleDiv.className = "title-author-pages";
+
         titleDiv.appendChild(headTitleAuthor);
         titleDiv.appendChild(pages);
 
+        // add div for comments
         const commentsDiv = document.createElement("div");
         commentsDiv.className = "comments-and-rating";
 
@@ -59,34 +62,50 @@ function displayLibrary(library) {
 
         commentsDiv.appendChild(comment);
 
+        // add div for options
         const optionsDiv = document.createElement("div");
         optionsDiv.className = "book-options";
 
+        // was read button
         const anchorRead = document.createElement("a");
         const imgRead = document.createElement("img");
         imgRead.src = "assets/read btn.svg";
         anchorRead.appendChild(imgRead);
 
+        // edit button
         const anchorEdit = document.createElement("a");
         const imgEdit = document.createElement("img");
         imgEdit.src = "assets/edit.svg";
         anchorEdit.appendChild(imgEdit);
 
+        // delete button
         const anchorDelete = document.createElement("a");
+
+        // make delete button delete the div
+        anchorDelete.addEventListener('click', () => {
+            let decision = prompt('Type "delete" to delete the book');
+            if (decision == "delete") {
+                mainDiv.remove();
+            }
+        });
+
         const imgDelete = document.createElement("img");
         imgDelete.src = "assets/delete.svg";
         anchorDelete.appendChild(imgDelete);
 
+        // add all buttons to div
         optionsDiv.appendChild(anchorRead);
         optionsDiv.appendChild(anchorEdit);
         optionsDiv.appendChild(anchorDelete);
         
+        // add all divs to main div
         const mainDiv = document.createElement("div");
         mainDiv.className = "book";
         mainDiv.appendChild(titleDiv);
         mainDiv.appendChild(commentsDiv);
         mainDiv.appendChild(optionsDiv);
 
+        // add div to the book place
         bookPlace.appendChild(mainDiv);
     });
 }
