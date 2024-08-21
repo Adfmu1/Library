@@ -30,6 +30,22 @@ input:focus {
     outline: none;
 }
 
+.book-read {
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(45deg, rgba(255,255,255,1) 74%, rgba(108,245,65,1) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 74%, rgba(108,245,65,1) 100%);
+    background: linear-gradient(45deg, rgba(255,255,255,1) 74%, rgba(108,245,65,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#6cf541",GradientType=1);
+}
+
+.book-not-read {
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(45deg, rgba(255,255,255,1) 74%, rgba(245,65,65,1) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 74%, rgba(245,65,65,1) 100%);
+    background: linear-gradient(45deg, rgba(255,255,255,1) 74%, rgba(245,65,65,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#f54141",GradientType=1);
+}
+
 /* Dashboard */
 #dashboard {
     position: fixed;
@@ -187,7 +203,6 @@ input:focus {
     justify-content: space-around;
     padding: 10px;
     border-radius: 5%;
-    background-color: white;
 
     h2, h3 {
         margin: 5px 0px 0px 0px;
@@ -214,3 +229,4 @@ input:focus {
     }
 
 }
+
