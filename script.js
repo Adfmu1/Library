@@ -1,15 +1,24 @@
-// prevent default submit
-const submitButton = document.querySelector("#add-book-btn").addEventListener(
-    'click', (event) => {
-        event.preventDefault();
-    }
-)
-
 // getting book title, author, pages and was read
 const bookTitle = document.querySelector("#title");
 const bookAuthor = document.querySelector("#author");
 const bookPages = document.querySelector("#pages");
 const wasRead = document.querySelector("#was-read");
+
+// prevent default submit and create book in library
+const submitButton = document.querySelector("#add-book-btn").addEventListener(
+    'click', (event) => {
+        event.preventDefault();
+
+        myLibrary.push(new Book(bookTitle.value, bookAuthor.value, 
+                               bookPages.value, wasRead.checked 
+        ))
+
+        bookTitle.value = '';
+        bookAuthor.value = '';
+        bookPages.value = '';
+        wasRead.checked = false;
+    }
+)
 
 const bookPlace = document.querySelector("#books");
 
