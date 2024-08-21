@@ -15,11 +15,11 @@ const bookPlace = document.querySelector("#books");
 
 const myLibrary = [];
 
-function Book(title, author, pages, wasRed) {
+function Book(title, author, pages, wasRead) {
     this.title = title,
     this.author = author,
     this.pages = pages,
-    this.wasRed = wasRed;
+    this.wasRead = wasRead;
 }
 
 const bookHobbit = new Book("Hobbit", "Tolkien", 320, false);
@@ -100,13 +100,29 @@ function displayLibrary(library) {
         
         // add all divs to main div
         const mainDiv = document.createElement("div");
-        mainDiv.className = "book";
+
+        // conditional styling of book card
+        if (book.wasRead == true) {
+            mainDiv.className = "book book-read";
+        }
+        else {
+            mainDiv.className = "book book-not-read";
+        }
+
         mainDiv.appendChild(titleDiv);
         mainDiv.appendChild(commentsDiv);
         mainDiv.appendChild(optionsDiv);
 
         // add div to the book place
         bookPlace.appendChild(mainDiv);
+    });
+}
+
+function removeAllBooks() {
+    const bookElements = document.querySelectorAll('.book');
+
+    bookElements.forEach(book => {
+    book.remove();
     });
 }
 
