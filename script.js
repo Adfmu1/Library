@@ -42,7 +42,7 @@ function displayLibrary(library) {
 
         const pages = document.createElement("h3");
         pages.className = "pages";
-        pages.textContent = book.pages;
+        pages.textContent = `${book.pages} pages`;
 
         const titleDiv = document.createElement("div");
         titleDiv.className = "title-author-pages";
