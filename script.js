@@ -9,14 +9,11 @@ const submitButton = document.querySelector("#add-book-btn").addEventListener(
     'click', (event) => {
         event.preventDefault();
 
-        myLibrary.push(new Book(bookTitle.value, bookAuthor.value, 
-                               bookPages.value, wasRead.checked 
-        ))
+        addBookToLibrary();
 
-        bookTitle.value = '';
-        bookAuthor.value = '';
-        bookPages.value = '';
-        wasRead.checked = false;
+        removeAllBooks();
+
+        displayLibrary(myLibrary);
     }
 )
 
@@ -37,10 +34,20 @@ const bookPride = new Book("Pride and Prejudice", "Jane", 250, true);
 myLibrary.push(bookHobbit);
 myLibrary.push(bookPride);
 
-console.log(myLibrary);
-
 function addBookToLibrary() {
-    
+    if (bookTitle.value != "" && bookAuthor.value != "" && bookPages.value != "") {
+        myLibrary.push(new Book(bookTitle.value, bookAuthor.value, 
+            bookPages.value, wasRead.checked 
+        ))
+    }
+    else {
+        alert("None of the values can be empty");
+    }
+
+    bookTitle.value = '';
+    bookAuthor.value = '';
+    bookPages.value = '';
+    wasRead.checked = false;
 }
 
 function displayLibrary(library) {
