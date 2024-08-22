@@ -91,12 +91,23 @@ function displayLibrary(library) {
         const anchorRead = document.createElement("a");
         const imgRead = document.createElement("img");
         imgRead.src = "assets/read btn.svg";
+
+        anchorRead.addEventListener('click', () => {
+            if (mainDiv.className == "book book-read") {
+                mainDiv.className = "book book-not-read";
+            }
+            else if (mainDiv.className == "book book-not-read") {
+                mainDiv.className = "book book-read";
+            }
+        });
+
         anchorRead.appendChild(imgRead);
 
         // edit button
         const anchorEdit = document.createElement("a");
         const imgEdit = document.createElement("img");
         imgEdit.src = "assets/edit.svg";
+
         anchorEdit.appendChild(imgEdit);
 
         // delete button
