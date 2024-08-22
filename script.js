@@ -35,19 +35,24 @@ myLibrary.push(bookHobbit);
 myLibrary.push(bookPride);
 
 function addBookToLibrary() {
-    if (bookTitle.value != "" && bookAuthor.value != "" && bookPages.value != "") {
+    if (bookTitle.value == "") {
+        alert("Book needs to have a title");
+    }
+    else if (bookAuthor.value == "") {
+        alert("Book needs to have an author");
+    }
+    else if (bookPages.value == "") {
+        alert("Book needs to have some pages");
+    }
+    else {
         myLibrary.push(new Book(bookTitle.value, bookAuthor.value, 
             bookPages.value, wasRead.checked 
         ))
+        bookTitle.value = '';
+        bookAuthor.value = '';
+        bookPages.value = '';
+        wasRead.checked = false;
     }
-    else {
-        alert("None of the values can be empty");
-    }
-
-    bookTitle.value = '';
-    bookAuthor.value = '';
-    bookPages.value = '';
-    wasRead.checked = false;
 }
 
 function displayLibrary(library) {
