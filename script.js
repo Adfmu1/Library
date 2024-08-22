@@ -9,11 +9,11 @@ const submitButton = document.querySelector("#add-book-btn").addEventListener(
     'click', (event) => {
         event.preventDefault();
 
-        addBookToLibrary();
+        if (addBookToLibrary()) {
+            removeAllBooks();
 
-        removeAllBooks();
-
-        displayLibrary(myLibrary);
+            displayLibrary(myLibrary);
+        }
     }
 )
 
@@ -52,7 +52,11 @@ function addBookToLibrary() {
         bookAuthor.value = '';
         bookPages.value = '';
         wasRead.checked = false;
+
+        return true;
     }
+        return false;
+    
 }
 
 function displayLibrary(library) {
@@ -108,6 +112,16 @@ function displayLibrary(library) {
         const imgEdit = document.createElement("img");
         imgEdit.src = "assets/edit.svg";
 
+        anchorEdit.addEventListener('click', () => {
+            let editMessage = prompt(`You sure you want to edit ${book.bookTitle}?\n Type 'yes' to continue.`);
+            if (editMessage.trim().toLowerCase() == 'yes') {
+                bookTitle.value = book.title;
+                bookAuthor.value = book.author;
+                bookPages.value = book.pages;
+                wasRead.value = book.wasRead;
+            }
+        });
+
         anchorEdit.appendChild(imgEdit);
 
         // delete button
@@ -154,7 +168,7 @@ function removeAllBooks() {
     const bookElements = document.querySelectorAll('.book');
 
     bookElements.forEach(book => {
-    book.remove();
+        book.remove();
     });
 }
 
