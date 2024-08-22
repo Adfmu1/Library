@@ -12,6 +12,15 @@ const submitButton = document.querySelector("#add-book-btn").addEventListener(
         if (addBookToLibrary()) {
             removeAllBooks();
 
+            myLibrary.sort((book1, book2) => {
+                // Extract surnames from full names
+                const surname1 = book1.author.split(' ').pop().toLowerCase();
+                const surname2 = book2.author.split(' ').pop().toLowerCase();
+              
+                // Compare surnames for sorting
+                return surname1.localeCompare(surname2);
+              });
+
             displayLibrary(myLibrary);
         }
     }
@@ -169,6 +178,7 @@ function removeAllBooks() {
 
     bookElements.forEach(book => {
         book.remove();
+        myLibrary.pop(book);
     });
 }
 
