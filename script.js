@@ -1,25 +1,40 @@
-// prevent default submit
-const submitButton = document.querySelector("#add-book-btn").addEventListener(
-    'click', (event) => {
-        event.preventDefault();
-    }
-)
-
 // getting book title, author, pages and was read
 const bookTitle = document.querySelector("#title");
 const bookAuthor = document.querySelector("#author");
 const bookPages = document.querySelector("#pages");
 const wasRead = document.querySelector("#was-read");
 
+// prevent default submit and create book in library
+const submitButton = document.querySelector("#add-book-btn").addEventListener(
+    'click', (event) => {
+        event.preventDefault();
+
+        if (addBookToLibrary()) {
+            removeAllBooks();
+
+            myLibrary.sort((book1, book2) => {
+                // Extract surnames from full names
+                const surname1 = book1.author.split(' ').pop().toLowerCase();
+                const surname2 = book2.author.split(' ').pop().toLowerCase();
+              
+                // Compare surnames for sorting
+                return surname1.localeCompare(surname2);
+              });
+
+            displayLibrary(myLibrary);
+        }
+    }
+)
+
 const bookPlace = document.querySelector("#books");
 
 const myLibrary = [];
 
-function Book(title, author, pages, wasRed) {
+function Book(title, author, pages, wasRead) {
     this.title = title,
     this.author = author,
     this.pages = pages,
-    this.wasRed = wasRed;
+    this.wasRead = wasRead;
 }
 
 const bookHobbit = new Book("Hobbit", "Tolkien", 320, false);
@@ -28,9 +43,28 @@ const bookPride = new Book("Pride and Prejudice", "Jane", 250, true);
 myLibrary.push(bookHobbit);
 myLibrary.push(bookPride);
 
-console.log(myLibrary);
-
 function addBookToLibrary() {
+    if (bookTitle.value == "") {
+        alert("Book needs to have a title");
+    }
+    else if (bookAuthor.value == "") {
+        alert("Book needs to have an author");
+    }
+    else if (bookPages.value == "") {
+        alert("Book needs to have some pages");
+    }
+    else {
+        myLibrary.push(new Book(bookTitle.value, bookAuthor.value, 
+            bookPages.value, wasRead.checked 
+        ))
+        bookTitle.value = '';
+        bookAuthor.value = '';
+        bookPages.value = '';
+        wasRead.checked = false;
+
+        return true;
+    }
+        return false;
     
 }
 
@@ -70,12 +104,33 @@ function displayLibrary(library) {
         const anchorRead = document.createElement("a");
         const imgRead = document.createElement("img");
         imgRead.src = "assets/read btn.svg";
+
+        anchorRead.addEventListener('click', () => {
+            if (mainDiv.className == "book book-read") {
+                mainDiv.className = "book book-not-read";
+            }
+            else if (mainDiv.className == "book book-not-read") {
+                mainDiv.className = "book book-read";
+            }
+        });
+
         anchorRead.appendChild(imgRead);
 
         // edit button
         const anchorEdit = document.createElement("a");
         const imgEdit = document.createElement("img");
         imgEdit.src = "assets/edit.svg";
+
+        anchorEdit.addEventListener('click', () => {
+            let editMessage = prompt(`You sure you want to edit ${book.bookTitle}?\n Type 'yes' to continue.`);
+            if (editMessage.trim().toLowerCase() == 'yes') {
+                bookTitle.value = book.title;
+                bookAuthor.value = book.author;
+                bookPages.value = book.pages;
+                wasRead.value = book.wasRead;
+            }
+        });
+
         anchorEdit.appendChild(imgEdit);
 
         // delete button
@@ -100,13 +155,30 @@ function displayLibrary(library) {
         
         // add all divs to main div
         const mainDiv = document.createElement("div");
-        mainDiv.className = "book";
+
+        // conditional styling of book card
+        if (book.wasRead == true) {
+            mainDiv.className = "book book-read";
+        }
+        else {
+            mainDiv.className = "book book-not-read";
+        }
+
         mainDiv.appendChild(titleDiv);
         mainDiv.appendChild(commentsDiv);
         mainDiv.appendChild(optionsDiv);
 
         // add div to the book place
         bookPlace.appendChild(mainDiv);
+    });
+}
+
+function removeAllBooks() {
+    const bookElements = document.querySelectorAll('.book');
+
+    bookElements.forEach(book => {
+        book.remove();
+        myLibrary.pop(book);
     });
 }
 
