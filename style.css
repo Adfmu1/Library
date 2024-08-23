@@ -46,6 +46,13 @@ input:focus {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#f54141",GradientType=1);
 }
 
+dialog {
+    position: fixed;
+    width: 40%;
+    height: 40%;
+    top: 15%;
+} 
+
 /* Dashboard */
 #dashboard {
     position: fixed;
@@ -203,6 +210,8 @@ input:focus {
     justify-content: space-around;
     padding: 10px;
     border-radius: 5%;
+    box-shadow: 5px 10px 10px rgba(68, 68, 68, 0.349);
+
 
     h2, h3 {
         margin: 5px 0px 0px 0px;
