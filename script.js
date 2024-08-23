@@ -140,6 +140,7 @@ function displayLibrary(library) {
         anchorDelete.addEventListener('click', () => {
             let decision = prompt('Type "delete" to delete the book');
             if (decision == "delete") {
+                myLibrary.pop(book);
                 mainDiv.remove();
             }
         });
@@ -178,7 +179,6 @@ function removeAllBooks() {
 
     bookElements.forEach(book => {
         book.remove();
-        myLibrary.pop(book);
     });
 }
 
