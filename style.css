@@ -20,13 +20,19 @@ body{
     background-color: #f5f3ff;
 }
 
+textarea {
+    width: 80%;
+    min-height: 6rem;
+    resize: none;
+}
+
 input::-webkit-outer-spin-button,
       input::-webkit-inner-spin-button {
          -webkit-appearance: none;
       }
       
 
-input:focus {
+input:focus, textarea:focus {
     outline: none;
 }
 
@@ -45,13 +51,6 @@ input:focus {
     background: linear-gradient(45deg, rgba(255,255,255,1) 74%, rgba(245,65,65,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#f54141",GradientType=1);
 }
-
-dialog {
-    position: fixed;
-    width: 40%;
-    height: 40%;
-    top: 15%;
-} 
 
 /* Dashboard */
 #dashboard {
@@ -81,6 +80,11 @@ dialog {
         font-size: 1rem;
     }
 
+    textarea {
+        font-family: "dream-orphans-bold";
+        font-size: 0.8rem;
+    }
+
 }
 
 #dashboard-logo {
@@ -95,7 +99,7 @@ dialog {
 #dashboard > * {
     padding-left: 20px;
 
-    input {
+    input, textarea {
         border: 2px solid #064e3b;
         border-radius: 15px;
         height: 30px;
@@ -105,13 +109,12 @@ dialog {
         padding-left: 5px;
     }
 
-    input:focus {
+    input:focus, textarea:focus {
         border: 3px solid #15803d;
         background-color: #bbf7d0;
     }
 
 }
-
 
 #search-for-book {
     display: flex;
