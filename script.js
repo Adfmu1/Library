@@ -131,6 +131,13 @@ function displayLibrary(library) {
                 bookAuthor.value = book.author;
                 bookPages.value = book.pages;
                 wasRead.value = book.wasRead;
+                bookComments.value = book.comments;
+
+                mainDiv.remove();
+
+                myLibrary.pop(book);
+
+                displayLibrary(myLibrary);
             }
         });
 
