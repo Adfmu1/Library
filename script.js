@@ -3,6 +3,7 @@ const bookTitle = document.querySelector("#title");
 const bookAuthor = document.querySelector("#author");
 const bookPages = document.querySelector("#pages");
 const wasRead = document.querySelector("#was-read");
+const bookComments = document.querySelector("#comment");
 
 // prevent default submit and create book in library
 const submitButton = document.querySelector("#add-book-btn").addEventListener(
@@ -30,15 +31,16 @@ const bookPlace = document.querySelector("#books");
 
 const myLibrary = [];
 
-function Book(title, author, pages, wasRead) {
+function Book(title, author, pages, wasRead, comments) {
     this.title = title,
     this.author = author,
     this.pages = pages,
-    this.wasRead = wasRead;
+    this.wasRead = wasRead,
+    this.comments = comments;
 }
 
-const bookHobbit = new Book("Hobbit", "Tolkien", 320, false);
-const bookPride = new Book("Pride and Prejudice", "Jane", 250, true);
+const bookHobbit = new Book("Hobbit", "Tolkien", 320, false, "its Good");
+const bookPride = new Book("Pride and Prejudice", "Jane", 250, true, "its better than movie!");
 
 myLibrary.push(bookHobbit);
 myLibrary.push(bookPride);
@@ -55,12 +57,13 @@ function addBookToLibrary() {
     }
     else {
         myLibrary.push(new Book(bookTitle.value, bookAuthor.value, 
-            bookPages.value, wasRead.checked 
+            bookPages.value, wasRead.checked, bookComments.value
         ))
         bookTitle.value = '';
         bookAuthor.value = '';
         bookPages.value = '';
         wasRead.checked = false;
+        bookComments.value = '';
 
         return true;
     }
@@ -92,7 +95,7 @@ function displayLibrary(library) {
         const comment = document.createElement("p");
         comment.className = "comment";
 
-        comment.textContent = "no comment here!";
+        comment.textContent = book.comments;
 
         commentsDiv.appendChild(comment);
 
