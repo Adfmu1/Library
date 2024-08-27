@@ -217,6 +217,10 @@ input:focus, textarea:focus {
         font-size: 4vw;
         margin-bottom: 0px;
         margin-top: 3vh;
+        background: #FED7AA;
+        background: radial-gradient(ellipse farthest-corner at top left, #FED7AA 0%, #F59E0B 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 }
 
