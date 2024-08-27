@@ -19,6 +19,10 @@
     src: url(fonts/Ananda.ttf);
 }
 
+@font-face {
+    font-family: "libasSans";
+    src: url(fonts/LibasSans.otf);
+}
 /* global styling */
 body{
     margin: 0px;
@@ -222,17 +226,23 @@ input:focus, textarea:focus {
 .book {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 10px;
     border-radius: 5%;
     box-shadow: 5px 10px 10px rgba(68, 68, 68, 0.349);
 
 
     h2, h3 {
-        margin: 5px 0px 0px 0px;
+        font-family: "libasSans";
+        letter-spacing: 0.05rem;
+        margin: 10px 0px 0px 0px;
+        padding-right: 10%;
+        font-weight: 200;
     }
 
     p {
+        font-family: "dream-orphans-bold";
+        font-size: 0.8rem;
         margin: 10px 0px;
     }
 

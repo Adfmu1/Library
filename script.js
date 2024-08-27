@@ -40,7 +40,7 @@ function Book(title, author, pages, wasRead, comments) {
 }
 
 const bookHobbit = new Book("Hobbit", "Tolkien", 320, false, "its Good");
-const bookPride = new Book("Pride and Prejudice", "Jane", 250, true, "its better than movie!");
+const bookPride = new Book("Pride and Prejudice", "Jane Austen", 250, true, "its better than movie!");
 
 myLibrary.push(bookHobbit);
 myLibrary.push(bookPride);
