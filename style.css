@@ -194,7 +194,6 @@ input:focus, textarea:focus {
     margin-left: 20vw;
     display: flex;
     align-items: center;
-    height: 200vh;
     flex-direction: column;
 }
 
