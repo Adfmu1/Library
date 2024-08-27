@@ -3,6 +3,7 @@
     font-family: "norwester";
     src: url(fonts/norwester.otf);
 }
+/* link: https://www.fontsquirrel.com/fonts/norwester */
 
 @font-face {
     font-family: "dream-orphans-bold";
@@ -13,16 +14,21 @@
     font-family: "dream orphans it";
     src: url(fonts/Dream\ Orphans\ It.otf);
 }
+/* link: https://www.dafont.com/dream-orphans.font */
 
 @font-face {
     font-family: "ananda";
     src: url(fonts/Ananda.ttf);
 }
+/* link: https://www.fontspace.com/ananda-black-font-f85089 */
 
 @font-face {
     font-family: "libasSans";
     src: url(fonts/LibasSans.otf);
 }
+/* link: https://www.fontspace.com/l-libas-sans-font-f117351 */
+
+
 /* global styling */
 body{
     margin: 0px;

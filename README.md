@@ -2,4 +2,9 @@
 #The Library
 
 Things to do:
-Add fonts to book cards and background photo, make search by author and title 
+Make search by author and title and make responsive
+
+Background photo:
+https://www.pexels.com/pl-pl/zdjecie/rozne-ksiazki-na-polce-1290141/
+
+Fonts from:
